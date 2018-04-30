@@ -1,40 +1,46 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { EspecialidadeService } from './../services/domain/especialidade.service';
+import { EstadoService } from './../services/domain/estado.service';
+import { CidadeService } from './../services/domain/cidade.service';
+import { MedicoService } from './../services/domain/medico.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
+import { MyApp } from './app.component';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AuthService } from '../services/auth.service';
+import { ErrorInterceptorProvider } from '../interceptors/error-interceptor';
+import { AuthInterceptorProvider } from '../interceptors/auth-interceptor';
+import { StorageService } from '../services/storage.service';
 
 @NgModule({
   declarations: [
-    MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    MyApp
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    MyApp
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthInterceptorProvider,
+    ErrorInterceptorProvider,
+    AuthService,
+    StorageService,
+    MedicoService,
+    CidadeService,
+    EstadoService,
+    EspecialidadeService
   ]
 })
 export class AppModule {}

@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Editar Médico </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formGroup" (ngSubmit)="save(); $event.preventDefault()">
+
+    <ion-item class="input-cont" no-lines>
+      <ion-icon name="ios-person" item-start></ion-icon>
+      <ion-label stacked>Primeiro Nome*</ion-label>
+      <ion-input formControlName="first_name" type="text"></ion-input>
+    </ion-item>
+    <p class="danger" *ngIf="formGroup.controls['first_name'].dirty && formGroup.controls['first_name'].errors" margin-left>Valor inválido</p>
+
+    <ion-item class="input-cont" no-lines>
+      <ion-icon name="ios-person-outline" item-start></ion-icon>
+      <ion-label stacked>Ultimo Nome*</ion-label>
+      <ion-input formControlName="last_name" type="text"></ion-input>
+    </ion-item>
+
+    <p class="danger" *ngIf="formGroup.controls['last_name'].dirty && formGroup.controls['last_name'].errors" margin-left>Valor inválido</p>
+
+    <ion-item class="input-cont" no-lines>
+      <ion-icon name="mail" item-start></ion-icon>
+      <ion-label stacked>Email*</ion-label>
+      <ion-input formControlName="email" type="text"></ion-input>
+    </ion-item>
+    <p class="danger" *ngIf="formGroup.controls['email'].dirty && formGroup.controls['email'].errors" margin-left>Valor inválido</p>
+
+    <ion-item class="input-cont" no-lines>
+      <ion-icon name="briefcase" item-start></ion-icon>
+      <ion-label stacked>Especialidade*</ion-label>
+      <ion-select formControlName="especialidade">
+        <ion-option *ngFor="let especialidade of especialidades" [value]="especialidade" [selected]="especialidade.id == item.especialidade.id">{{especialidade.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="input-cont" no-lines>
+      <ion-icon name="map" item-start></ion-icon>
+      <ion-label stacked>Estado*</ion-label>
+      <ion-select formControlName="estado" (ionChange)="updateCidades()">
+        <ion-option *ngFor="let estado of estados" [value]="estado" [selected]="estado.id == item.cidade.estado.id">{{estado.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="input-cont" no-lines>
+      <ion-icon name="image" item-start></ion-icon>
+      <ion-label stacked>Cidade*</ion-label>
+      <ion-select formControlName="cidade">
+        <ion-option *ngFor="let cidade of cidades" [value]="cidade" [selected]="cidade.id == item.cidade.id">{{cidade.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="input-cont" no-lines>
+        <ion-label>Ativo</ion-label>
+        <ion-checkbox formControlName="active" color="dark" checked="true"></ion-checkbox>
+      </ion-item>
+  
+      <ion-item class="input-cont" no-lines>
+        <ion-label>Disponível</ion-label>
+        <ion-checkbox formControlName="status" color="dark" checked="true"></ion-checkbox>
+      </ion-item>
+
+    <button ion-button block type="submit" [disabled]="formGroup.invalid">Salvar</button>
+  </form>
+</ion-content>

@@ -1,0 +1,44 @@
+<ion-content padding>
+
+  
+  <div text-right>
+    <b class="version">0.0.1</b>
+  </div>
+  <div text-center>
+    <img src="assets/imgs/logo.png" class="logo" />
+  </div>
+  <ion-grid>
+
+    <ion-list>
+
+      <ion-item class="input-cont" no-lines>
+        <ion-icon name="md-person" item-start></ion-icon>
+        <ion-input [(ngModel)]="creds.email" name="email" type="email" placeholder="E-mail"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-cont" no-lines>
+        <ion-icon name="md-lock" item-start></ion-icon>
+        <ion-input [(ngModel)]="creds.senha" name="senha" type="password" placeholder="Senha"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button full round  (click)="login()">Entrar</button>
+
+    <ion-label>Lembrar-me</ion-label>
+    <ion-toggle value="foo" checked="false"></ion-toggle>
+
+    <ion-row text-center>
+      <ion-col col-3>
+        <p class="development-text">Wallison</p>
+      </ion-col>
+      <ion-col col-6>
+        <div text-center>
+          <img src="assets/imgs/logo.png" class="development" />
+        </div>
+      </ion-col>
+    </ion-row>
+
+
+
+
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,96 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detalhe do Médico</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-5>
+        <ion-avatar item-start>
+          <img src="assets/imgs/user.svg">
+        </ion-avatar>
+      </ion-col>
+
+      <ion-col col-5>
+        <p>{{item?.especialidade.name}}</p>
+        <h2>{{item?.first_name}}</h2>
+      </ion-col>
+
+      <ion-col col-2>
+        <button ion-fab color="secondary"  *ngIf="item?.active" (click)="changeStatus(false)" >
+          <ion-icon name="ios-eye"></ion-icon>
+        </button>
+        <button ion-fab color="danger"  *ngIf="!item?.active" (click)="changeStatus(true)">
+          <ion-icon name="eye-off"></ion-icon>
+        </button>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <hr/>
+  <ion-card>
+    <ion-card-header>
+      Informações adicionais
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+
+        <ion-row>
+          <ion-col col-2>
+            <ion-avatar item-start>
+              <ion-icon name="map"></ion-icon>
+            </ion-avatar>
+          </ion-col>
+          <ion-col col-10>
+            <b>{{item?.cidade.estado.name}}</b>
+            <p>{{item?.cidade.name}}</p>
+          </ion-col>
+          
+          <ion-col col-12>
+            <hr/>
+          </ion-col>      
+          
+          <ion-col col-2>
+            <ion-avatar item-start>
+              <ion-icon name="mail"></ion-icon>
+            </ion-avatar>
+          </ion-col>
+          <ion-col col-10>
+            <b>E-mail</b>
+            <p>{{item?.email}}</p>
+          </ion-col>
+
+          <ion-col col-12>
+            <hr/>
+          </ion-col>      
+          
+          <ion-col col-2>
+            <ion-avatar item-start>
+              <ion-icon name="{{item?.status?'ios-person':'ios-person-outline'}}"></ion-icon>
+            </ion-avatar>
+          </ion-col>
+          <ion-col col-10>
+            <b>Status</b>
+            <p>{{item?.status?'Disponível':'Ocupado'}}</p>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab bottom right>
+    <button color="warning" (click)="showEdit(item.id)" ion-fab secondary>
+      <ion-icon name="create"></ion-icon>
+    </button>
+  </ion-fab>
+
+
+</ion-content>
