@@ -7,9 +7,20 @@
 
   <ion-content>
     <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
+      <ion-item class="background-purple">
+        <div text-center >
+          <img src="assets/imgs/logo2.png" class="logo-sidemenu" />
+          <h1>Mais Vida</h1>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+            <ion-icon name="{{p.icon}}" item-start></ion-icon>
+              {{p.title}}
+            </button>
+      </ion-item>
+
     </ion-list>
   </ion-content>
 

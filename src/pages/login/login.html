@@ -1,11 +1,11 @@
-<ion-content padding>
+<ion-content padding class="background-purple">
 
   
   <div text-right>
-    <b class="version">0.0.1</b>
+    <b class="version text-white">0.0.1</b>
   </div>
   <div text-center>
-    <img src="assets/imgs/logo.png" class="logo" />
+    <img src="assets/imgs/logo2.png" class="logo" />
   </div>
   <ion-grid>
 
@@ -21,14 +21,19 @@
         <ion-input [(ngModel)]="creds.senha" name="senha" type="password" placeholder="Senha"></ion-input>
       </ion-item>
     </ion-list>
-    <button ion-button full round  (click)="login()">Entrar</button>
 
-    <ion-label>Lembrar-me</ion-label>
-    <ion-toggle value="foo" checked="false"></ion-toggle>
+    <button ion-button full round  color="secondary" (click)="login()">Entrar</button>
+
+    <ion-list> 
+      <ion-item class="background-purple">
+        <ion-label class="text-white">Lembrar-me</ion-label>
+        <ion-toggle color="secondary" checked="true"></ion-toggle>
+      </ion-item>
+    </ion-list>
 
     <ion-row text-center>
       <ion-col col-3>
-        <p class="development-text">Wallison</p>
+        <p class="development-text text-white">Wallison</p>
       </ion-col>
       <ion-col col-6>
         <div text-center>

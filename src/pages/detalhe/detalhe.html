@@ -45,7 +45,7 @@
         <ion-row>
           <ion-col col-2>
             <ion-avatar item-start>
-              <ion-icon name="map"></ion-icon>
+              <ion-icon name="map" color="purple"></ion-icon>
             </ion-avatar>
           </ion-col>
           <ion-col col-10>
@@ -59,7 +59,7 @@
           
           <ion-col col-2>
             <ion-avatar item-start>
-              <ion-icon name="mail"></ion-icon>
+              <ion-icon name="mail" color="warning"></ion-icon>
             </ion-avatar>
           </ion-col>
           <ion-col col-10>
@@ -73,7 +73,7 @@
           
           <ion-col col-2>
             <ion-avatar item-start>
-              <ion-icon name="{{item?.status?'ios-person':'ios-person-outline'}}"></ion-icon>
+              <ion-icon name="ios-person"  color="{{item?.status?'secondary':'danger'}}" ></ion-icon>
             </ion-avatar>
           </ion-col>
           <ion-col col-10>
@@ -87,7 +87,7 @@
   </ion-card>
 
   <ion-fab bottom right>
-    <button color="warning" (click)="showEdit(item.id)" ion-fab secondary>
+    <button color="purple" (click)="showEdit(item.id)" ion-fab secondary>
       <ion-icon name="create"></ion-icon>
     </button>
   </ion-fab>

@@ -14,3 +14,35 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.logo-sidemenu{    
+    height: 90pt;
+    margin-top: 10pt;
+}
+
+.background-purple{
+    background-color: #5e2cb3;
+    color:#fff
+}
+
+.toolbar-background-md {
+    border-color: #4c1aa0;
+    background-color: #5e2cb3;
+    color:#fff
+}
+
+.toolbar-title-md {
+    padding: 0 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color:#fff;
+    background-color: transparent;
+}
+
+.text-white{
+    color:#fff
+}

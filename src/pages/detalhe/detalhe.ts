@@ -37,9 +37,8 @@ export class DetalhePage {
   }
 
 
-  changeStatus(status: boolean ){
-    this.item.status=status;
-    console.log(this.item.status);
+  changeStatus(active: boolean ){
+    this.item.active=active;
   }
 
   showEdit(id: string) {
